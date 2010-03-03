@@ -22,17 +22,27 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 class MainPage(webapp.RequestHandler):
   def get(self):
     self.response.out.write("""
-      <html>
-        <head><title>Blogbus to WordPress</title></head>
-        <body>
-          <h1>Blogbus2WordPress</h1>
-          <form action="/" method="post" enctype="multipart/form-data">
-            <div><label>Upload Blogbus export XML</lable></div>
-            <div><input type="file" name="blogbusXml"/></div>
-            <div><input type="submit" value="Convert"></div>
-          </form>
-        </body>
-      </html>""")
+                            <html>
+                              <head><title>Blogbus to WordPress</title></head>
+                              <body>
+                                <h1>Blogbus2WordPress</h1>
+                                <form action="/" method="post" enctype="multipart/form-data">
+                                  <div><label>Upload Blogbus export XML</lable></div>
+                                  <div><input type="file" name="blogbusXml"/></div>
+                                  <div><input type="submit" value="Convert"></div>
+                                </form>
+                                <h2>Instructions</h2>
+                                <ul>
+                                  <li>Get the Blogbus backup XML file.</li>
+                                  <li>Fill the path here and hit "Convert" button, download the XML file for WordPress.</li>
+                                  <li>Selecting "WordPress" type and import the WordPress XML on WordPress import page, .</li>
+                                </ul>
+                                <h2>Code</h2>
+                                <a href="http://code.google.com/p/blogbus-to-wordpress/">Project hosted on Google Code</a>
+                                <h2>Author</h2>
+                                <a href="http://weiwei9.com">Wei Wei</a>
+                              </body>
+                            </html>""")
 
   def post(self):
     blogbusXml = self.request.get('blogbusXml')
