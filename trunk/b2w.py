@@ -143,7 +143,7 @@ def exportEntries(entries):
   for entry in entries:
     commentsStr = u""
     tagStr = u""
-    #logging.debug(entry)
+    logging.debug("exporting entry " + entry['title'])
     for tag in entry['tags']:
       tagStr += tagT.substitute(tag = tag)
     for comment in entry['comments']:
@@ -201,8 +201,10 @@ def convertEntries(soup, entries, tags):
       entry['comments'].append(c)
       if comment.email.string:
         c['email'] = comment.email.string
-      c['author'] = comment.nicename.string
-      c['comment'] = comment.commenttext.string
+      if comment.nicename.string:
+				c['author'] = comment.nicename.string
+      if comment.commenttext.string:
+				c['comment'] = comment.commenttext.string
       c['date'] = comment.createtime.string
       if comment.homepage.string:
         c['url'] = comment.homepage.string
@@ -230,6 +232,7 @@ def convert(blogbusXml):
   return ret
 
 def main():
+  logging.getLogger().setLevel(logging.DEBUG)
   run_wsgi_app(application)
 
 if __name__ == "__main__":
