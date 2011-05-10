@@ -33,6 +33,7 @@ class MainPage(webapp.RequestHandler):
 																</form>
 																<h2>Instructions</h2>
 																<ul>
+																	<li>Set Blogbus and WordPress blog to the same time zone.</li>
 																	<li>Get the Blogbus backup XML file.</li>
 																	<li>Fill the path here and hit "Convert" button, download the XML file for WordPress.</li>
 																	<li>Selecting "WordPress" type and import the WordPress XML on WordPress import page, .</li>
