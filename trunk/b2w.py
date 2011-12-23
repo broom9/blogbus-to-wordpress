@@ -151,6 +151,7 @@ def exportEntries(entries):
 	for entry in entries:
 		commentsStr = u""
 		tagStr = u""
+		categoryStr = u""
 		logging.debug("exporting entry " + entry['title'])
 		for tag in entry['tags']:
 			tagStr += tagT.substitute(tag = tag, tagNicename = saxutils.escape(tag))
